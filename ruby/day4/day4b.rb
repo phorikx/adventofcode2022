@@ -8,9 +8,9 @@ file_data = file.read
 lines = file_data.split("\n")
 lines = lines.map { |line| line.split(',') }
 lines = lines.map { |line| line.map { |pair| pair.split('-') } }
+lines = lines.map { |line| line.map { |pair| pair.map {|num| num.to_i}}}
 filtered_lines = lines.filter do |line|
-  line[0][1].to_i < line[1][0].to_i || line[0][0].to_i > line [1][1].to_i
+  line[0][1] < line[1][0] || line[0][0] > line [1][1]
 end
 
-filtered_lines.each{|line| puts line.inspect}
-puts filtered_lines.count
+puts 1000 - filtered_lines.count
