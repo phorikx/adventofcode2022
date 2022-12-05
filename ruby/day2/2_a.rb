@@ -4,7 +4,6 @@ file = File.open('input.txt')
 file_data = file.read
 
 lines = file_data.split("\n")
-puts lines[0]
 
 score_for_self = {"X" => 1, "Y" => 2, "Z" => 3}
 score_for_opponent = {
