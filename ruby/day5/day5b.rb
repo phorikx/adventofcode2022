@@ -14,7 +14,7 @@ beginning_stack = stack.split("\n").reverse[1..]
 beginning_stack.each do |row|
   (0..no_of_stacks - 1).each do |no|
     entry_at_row = row.split('')[1 + no * 4]
-    stacks[no].push(entry_at_row) unless entry_at_row =~ /\s/ or entry_at_row.nil?
+    stacks[no].push(entry_at_row) unless entry_at_row =~ (/\s/) || entry_at_row.nil?
   end
 end
 
@@ -26,7 +26,7 @@ instructions.each do |instruction|
     help_array.push(stacks[match['from'].to_i - 1].pop)
   end
   match['amount'].to_i.times do
-    stacks[match['to'].to_i-1].push(help_array.pop)
+    stacks[match['to'].to_i - 1].push(help_array.pop)
   end
 end
 

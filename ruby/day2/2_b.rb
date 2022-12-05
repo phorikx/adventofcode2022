@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'pry'
 
 file = File.open('input.txt')
@@ -6,16 +8,16 @@ file_data = file.read
 lines = file_data.split("\n")
 puts lines[0]
 
-score_for_self = {"X" => 0, "Y" => 3, "Z" => 6}
+score_for_self = { 'X' => 0, 'Y' => 3, 'Z' => 6 }
 score_for_opponent = {
-  "X" => {"A" => 3, "B" => 1, "C" => 2},
-  "Y" => {"A" => 1, "B" => 2, "C" => 3},
-  "Z" => {"A" => 2, "B" => 3, "C" => 1}
+  'X' => { 'A' => 3, 'B' => 1, 'C' => 2 },
+  'Y' => { 'A' => 1, 'B' => 2, 'C' => 3 },
+  'Z' => { 'A' => 2, 'B' => 3, 'C' => 1 }
 }
 
 sum = 0
 choices = lines.map do |line|
-  line.split(" ")
+  line.split(' ')
 end
 
 choices.each do |choice|
@@ -24,4 +26,3 @@ choices.each do |choice|
 end
 
 puts sum
-
