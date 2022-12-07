@@ -18,7 +18,7 @@ minimum_size = (root_directory.get_directory_size - 40_000_000)
 current_candidate = root_directory
 command_parser.all_directories.each do |dir|
   dif_to_min = dir.get_directory_size - minimum_size
-  current_candidate = dir if dif_to_min >= 0 and current_candidate.get_directory_size > dir.get_directory_size
+  current_candidate = dir if (dif_to_min >= 0) && (current_candidate.get_directory_size > dir.get_directory_size)
 end
 
 puts current_candidate.get_directory_size

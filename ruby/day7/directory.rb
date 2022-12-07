@@ -24,6 +24,16 @@ class Directory
     @directory_size ||= get_subdirectories_size + get_file_size
   end
 
+  def add_file(file)
+    @files << file
+  end
+
+  def add_directory(dir)
+    @subdirectories[dir.name] = dir
+  end
+
+  private
+
   def get_file_size
     return 0 if @files.size.zero?
 
@@ -34,13 +44,5 @@ class Directory
     return 0 if @subdirectories.length.zero?
 
     subdirectories.inject(0) { |sum, subdirectory| sum + subdirectory.last.get_directory_size }
-  end
-
-  def add_file(file)
-    @files << file
-  end
-
-  def add_directory(dir)
-    @subdirectories[dir.name] = dir
   end
 end

@@ -10,6 +10,15 @@ class CommandParser
     @commands = lines
   end
 
+  def parse
+    while @commands.length.positive?
+      current_command = @commands.shift
+      parse_command(current_command)
+    end
+  end
+
+  private
+
   def parse_command(line)
     puts line
     case line
@@ -30,13 +39,6 @@ class CommandParser
       @current_dir = @current_dir.go_up_directory
     when /(.*)/
       @current_dir = @current_dir.go_down_directory(Regexp.last_match(1))
-    end
-  end
-
-  def parse
-    while @commands.length.positive?
-      current_command = @commands.shift
-      parse_command(current_command)
     end
   end
 
