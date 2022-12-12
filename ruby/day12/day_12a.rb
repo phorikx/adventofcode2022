@@ -2,7 +2,7 @@
 
 require_relative './node'
 
-class Day12
+class Day12A
   attr_accessor :nodes
 
   def initialize
@@ -78,6 +78,6 @@ class Day12
   end
 end
 
-exercise = Day12.new
+exercise = Day12A.new
 exercise.process
 exercise.print_answer
