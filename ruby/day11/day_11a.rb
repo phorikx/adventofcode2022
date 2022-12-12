@@ -2,7 +2,7 @@
 
 require_relative './monkey'
 
-class Day11
+class Day11A
   attr_accessor :positions, :monkeys
 
   def initialize
@@ -27,6 +27,6 @@ class Day11
   end
 end
 
-exercise = Day11.new
+exercise = Day11A.new
 exercise.process
 exercise.print_answer

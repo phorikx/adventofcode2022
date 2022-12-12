@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Monkey
-  attr_accessor :inspected_items, :items
+  attr_accessor :inspected_items, :items, :divisible_by
 
   def initialize(data)
     lines = data.split("\n")
@@ -24,14 +24,15 @@ class Monkey
     while items.length > 0
       item = items.shift
       item = operation(item)
+      item = item % @filter_out
       @inspected_items += 1
-      item = item/3
       test?(item) ? @monkeys[@monkey_targets[0]].throw(item) : @monkeys[@monkey_targets[1]].throw(item)
     end
   end
 
   def set_monkeys(monkeys)
     @monkeys = monkeys
+    @filter_out = monkeys.inject(1){|pr, monkey| pr * monkey.divisible_by}
   end
 
   def throw(item)
