@@ -24,7 +24,8 @@ class Day13
   end
 
   def compare_integers(a, b)
-    return [false] if a==b
+    return [false] if a == b
+
     [true, a < b]
   end
 
@@ -37,11 +38,12 @@ class Day13
   def compare_lists(a, b)
     to_check = [a.length, b.length].min - 1
     (0..to_check).each do |i|
-      comparison = compare_entries(a[i],b[i])
+      comparison = compare_entries(a[i], b[i])
       return [true, comparison[1]] if comparison[0]
     end
     return [true, a.length < b.length] unless a.length == b.length
-    return [false]
+
+    [false]
   end
 
   def print_answer
