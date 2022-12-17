@@ -11,7 +11,7 @@ class Day11B
     @file.each do |monkey|
       monkeys << Monkey.new(monkey)
     end
-    monkeys.each{|monkey| monkey.set_monkeys(monkeys)}
+    monkeys.each { |monkey| monkey.set_monkeys(monkeys) }
   end
 
   def process
@@ -21,9 +21,9 @@ class Day11B
   end
 
   def print_answer
-    activity = monkeys.map{|monkey| monkey.inspected_items}.sort.reverse
+    activity = monkeys.map(&:inspected_items).sort.reverse
     puts activity.inspect
-    puts activity[0]*activity[1]
+    puts activity[0] * activity[1]
   end
 end
 

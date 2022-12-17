@@ -2,7 +2,7 @@
 
 class Node
   attr_accessor :value, :distance_to_start
-  attr_reader :coordinates, :neighbors 
+  attr_reader :coordinates, :neighbors
 
   def initialize(value, coordinates)
     @value = value
@@ -20,7 +20,7 @@ class Node
     @end_node
   end
 
-  def set_end 
+  def set_end
     @end_node = true
   end
 end

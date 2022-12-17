@@ -60,7 +60,7 @@ class Day13
   end
 
   def print_answer
-    puts (@packets.find_index([[2]])+1) * (@packets.find_index([[6]])+1)
+    puts (@packets.find_index([[2]]) + 1) * (@packets.find_index([[6]]) + 1)
   end
 
   def is_int?(a)
