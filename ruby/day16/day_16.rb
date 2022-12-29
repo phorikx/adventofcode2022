@@ -27,13 +27,7 @@ class Day16
   end
 
   def visit_child_valve(current_valve, timer_left, total_flow_released, valves_already_visited, stack)
-    puts "stack: #{stack}"
-    puts "timer_left: #{timer_left}"
-    puts "total_flow_released: #{total_flow_released}"
     proper_valves = good_valves(current_valve, valves_already_visited, timer_left)
-    puts "proper valves left: #{proper_valves.length}"
-    puts "valves_visited: #{valves_already_visited.map(&:name).inspect}"
-    puts "\n"
     @solutions << total_flow_released
     proper_valves.each do |valve|
       new_visited_valves = valves_already_visited.clone << valve
@@ -52,7 +46,7 @@ class Day16
 
   def good_valves(current_valve, valves_already_visited, timer)
     @relevant_valves.select do |valve|
-      !valves_already_visited.include?(valve) && (timer - (current_valve.get_distance_to_valve(valve) - 1 ) >= 0)
+      !valves_already_visited.include?(valve) && (timer - (current_valve.get_distance_to_valve(valve) - 1) >= 0)
     end
   end
 
